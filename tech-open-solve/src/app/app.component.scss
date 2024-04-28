@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  &.is-mobile {
+    mat-toolbar {
+      position: fixed;
+      z-index: 2;
+    }
+    .sidenav-container {
+      flex: 1 0 auto;
+    }
+  }
+
+  mat-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5.5rem;
+
+    .app-logo {
+      width: 10rem;
+      a {
+        img {
+          height: 100%;
+          width: 100%;
+          border-radius: 50%;
+        }
+      }
+
+    }
+  }
+
+  .sidenav-container {
+    flex: 1;
+  }
+}
