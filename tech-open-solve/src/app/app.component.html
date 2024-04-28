@@ -3,7 +3,7 @@
 
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     <div class="app-logo">
-      <a routerLink="/">
+      <a routerLink="">
         <mat-icon svgIcon="techopensolve"></mat-icon>
         <h1>TechOpenSolve</h1>
       </a>
@@ -19,7 +19,7 @@
       <mat-nav-list>
         <h3>Categories</h3>
         @for (nav of navItems; track nav) {
-        <a mat-list-item routerLink=".">{{nav.name}}</a>
+        <a mat-list-item routerLink="{{nav.route}}">{{nav.name}}</a>
         }
       </mat-nav-list>
     </mat-sidenav>
