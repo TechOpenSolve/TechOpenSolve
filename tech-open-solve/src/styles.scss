@@ -1,4 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// slide toggle overwrites
+mat-slide-toggle {
+  button {
+    .mdc-switch__track {
+      &::before {
+        border-color: #d4d4d4;
+      }
+      &::after {
+        background-color: grey !important;
+      }
+    }
+  }
+}
+

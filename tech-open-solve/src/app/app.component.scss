@@ -18,14 +18,19 @@
   }
 
   mat-toolbar {
+    background-color: #eaeaea;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 5.5rem;
+    height: 5rem;
+    box-shadow: 0 0.1rem 0.5rem #0f0f0f51;
+    z-index: 2;
 
     .app-logo {
-      width: 10rem;
+      width: 8rem;
       a {
+        display: flex;
+        align-items: center;
         img {
           height: 100%;
           width: 100%;
