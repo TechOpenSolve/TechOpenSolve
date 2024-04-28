@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Russo+One&family=UnifrakturCook:wght@700&display=swap');
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  &.is-mobile {
+    mat-toolbar {
+      position: fixed;
+      z-index: 2;
+    }
+
+    mat-sidenav-container {
+      flex: 1 0 auto;
+
+      mat-sidenav {
+        padding-top: 1rem;
+      }
+    }
+  }
+
+  mat-toolbar {
+    background-color: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4.5rem;
+    box-shadow: 0 0.1rem 0.5rem #0f0f0f51;
+    z-index: 2;
+
+    .app-logo {
+      a {
+        position: relative;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 10rem;
+
+        &:focus {
+          color: #404071;
+        }
+
+        mat-icon {
+          color: #404071;
+          position: absolute;
+          left: -0.5rem;
+          height: 5rem;
+          width: 5rem;
+          transform: rotate(270deg);
+        }
+
+        h1 {
+          background-color: #eaeaea;
+          color: #333;
+          position: absolute;
+          left: 2rem;
+          font-family: "Russo One", sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  mat-sidenav-container {
+    flex: 1;
+
+    mat-sidenav {
+      width: auto;
+      box-shadow: 0 0.1rem 0.5rem #0f0f0f18;
+      border-radius: 0;
+
+      h3 {
+        margin-left: 0.5rem;
+      }
+
+      a {
+        padding: 0 2rem 0 1rem;
+      }
+    }
+
+    mat-sidenav-content {
+      padding: 1rem;
+    }
+  }
+}
