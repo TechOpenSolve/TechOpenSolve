@@ -1,15 +1,17 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit, PLATFORM_ID, Inject } from "@angular/core";
 import { RouterLink, RouterOutlet } from "@angular/router";
+import { isPlatformBrowser } from "@angular/common";
+import { DomSanitizer } from "@angular/platform-browser";
 import { FooterComponent } from "./components/footer/footer.component";
 
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MediaMatcher } from "@angular/cdk/layout";
 import { MatListModule } from "@angular/material/list";
 import { MatSidenavModule } from "@angular/material/sidenav";
-import { MatIconModule } from "@angular/material/icon";
+import { MatIconModule, MatIconRegistry } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import { isPlatformBrowser } from "@angular/common";
+
 
 
 @Component({
@@ -33,14 +35,23 @@ export class AppComponent implements OnInit, OnDestroy {
 	mobileQuery: MediaQueryList;
   switchIcons: any;
 
-  fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
+  navItems = [
+    { name: "Women In Tech", route: "/home" },
+    { name: "Career Growth", route: "/about" },
+    { name: "Employment", route: "/about" },
+    { name: "Work Environment", route: "/projects" },
+    { name: "Freelancing", route: "/about" },
+    { name: "Community", route: "/contact" },
+    { name: "Open Source", route: "/about" },
+  ]
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, @Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, @Inject(PLATFORM_ID) private platformId: Object, private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+    this.iconRegistry.addSvgIcon('techopensolve', this.sanitizer.bypassSecurityTrustResourceUrl('./assets/branding/TechOpenSolve.svg'));
   }
 
   ngOnInit(): void {
