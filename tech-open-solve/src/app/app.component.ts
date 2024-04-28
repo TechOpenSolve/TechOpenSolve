@@ -36,13 +36,13 @@ export class AppComponent implements OnInit, OnDestroy {
   switchIcons: any;
 
   navItems = [
-    { name: "Women In Tech", route: "/home" },
-    { name: "Career Growth", route: "/about" },
-    { name: "Employment", route: "/about" },
-    { name: "Work Environment", route: "/projects" },
-    { name: "Freelancing", route: "/about" },
-    { name: "Community", route: "/contact" },
-    { name: "Open Source", route: "/about" },
+    { name: "Women In Tech", route: "/women-in-tech" },
+    { name: "Career Growth", route: "/career-growth" },
+    { name: "Employment", route: "/employment" },
+    { name: "Work Environment", route: "/work-environment" },
+    { name: "Freelancing", route: "/freelancing" },
+    { name: "Community", route: "/community" },
+    { name: "Open Source", route: "/open-source" },
   ]
 
   private _mobileQueryListener: () => void;
