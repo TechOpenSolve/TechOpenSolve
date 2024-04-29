@@ -25,12 +25,10 @@
   }
 
   mat-toolbar {
-    background-color: #eaeaea;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 4.5rem;
-    box-shadow: 0 0.1rem 0.5rem #0f0f0f51;
     z-index: 2;
 
     .app-logo {
@@ -42,12 +40,7 @@
         justify-content: flex-start;
         width: 10rem;
 
-        &:focus {
-          color: #404071;
-        }
-
         mat-icon {
-          color: #404071;
           position: absolute;
           left: -0.5rem;
           height: 5rem;
@@ -56,8 +49,6 @@
         }
 
         h1 {
-          background-color: #eaeaea;
-          color: #333;
           position: absolute;
           left: 2rem;
           font-family: "Russo One", sans-serif;
@@ -73,7 +64,6 @@
 
     mat-sidenav {
       width: auto;
-      box-shadow: 0 0.1rem 0.5rem #0f0f0f18;
       border-radius: 0;
 
       h3 {
