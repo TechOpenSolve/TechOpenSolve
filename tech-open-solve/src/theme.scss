@@ -1,17 +1,109 @@
 @use '@angular/material' as mat;
 @use '@angular/material-experimental' as matx;
 
-$theme: matx.define-theme((
-  color: (
-    theme-type: light,
-    primary: matx.$m3-azure-palette,
-    tertiary: matx.$m3-blue-palette,
-  )
-));
+$light-theme: matx.define-theme((color: (theme-type: light,
+        primary: matx.$m3-azure-palette,
+        tertiary: matx.$m3-blue-palette,
+      )));
+
+$dark-theme: matx.define-theme((color: (theme-type: dark,
+        primary: matx.$m3-cyan-palette,
+        tertiary: matx.$m3-orange-palette,
+      )));
 
 @include mat.core();
-@include matx.color-variants-back-compat($theme);
+@include matx.color-variants-back-compat($light-theme);
 
 :root {
-  @include mat.all-component-themes($theme);
+  @include mat.all-component-themes($light-theme);
+}
+
+// DARK THEME
+.dark {
+  @include matx.color-variants-back-compat($dark-theme);
+  @include mat.all-component-colors($dark-theme);
+
+  mat-toolbar {
+    background-color: #131313;
+    box-shadow: 0 0.1rem 0.5rem #0f0f0fc2;
+
+    .app-logo {
+      mat-icon {
+        color: #3c6968;
+      }
+
+      h1 {
+        background-color: #131313;
+        color: #e0e3e2;
+      }
+    }
+
+    // slide toggle overwrites
+    mat-slide-toggle {
+      button {
+        .mdc-switch__track {
+          &::after {
+            background-color: #1e2222 !important;
+          }
+        }
+      }
+    }
+  }
+
+  mat-sidenav-container {
+    mat-sidenav {
+      background-color: #191a18;
+      box-shadow: 0 0.1rem 0.5rem #0f0f0fc2;
+    }
+  }
+
+  app-footer {
+    background-color: #131313;
+    color: #e0e3e2;
+    box-shadow: 0 0.1rem 0.5rem #0f0f0fc2;
+  }
+}
+
+// LIGHT THEME
+.light {
+  mat-toolbar {
+    background-color: #eaeaea;
+    box-shadow: 0 0.1rem 0.5rem #0f0f0f51;
+
+    .app-logo {
+      mat-icon {
+        color: #3c6968;
+      }
+
+      h1 {
+        background-color: #eaeaea;
+        color: #333;
+      }
+    }
+
+    // slide toggle overwrites
+    mat-slide-toggle {
+      button {
+        .mdc-switch__track {
+          &::before {
+            border-color: #d4d4d4;
+          }
+
+          &::after {
+            background-color: grey !important;
+          }
+        }
+      }
+    }
+  }
+
+  mat-sidenav-container {
+    mat-sidenav {
+      box-shadow: 0 0.1rem 0.5rem #0f0f0f18;
+    }
+  }
+
+  app-footer {
+    background-color: #dfdfdf;
+  }
 }

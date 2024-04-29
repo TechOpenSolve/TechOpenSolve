@@ -1,4 +1,5 @@
-<div class="container" [class.is-mobile]="mobileQuery.matches">
+
+<div class="container" [class]="themeService.themeSignal()" [class.is-mobile]="mobileQuery.matches">
   <mat-toolbar>
 
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
@@ -9,7 +10,7 @@
       </a>
     </div>
     <div class="theme-control">
-      <mat-slide-toggle></mat-slide-toggle>
+      <mat-slide-toggle checked (click)="toggleTheme()"></mat-slide-toggle>
     </div>
   </mat-toolbar>
 
