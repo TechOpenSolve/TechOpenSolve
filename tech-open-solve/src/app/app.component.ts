@@ -24,10 +24,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     FooterComponent,
 		MatToolbarModule,
 		MatButtonModule,
-		MatIconModule,
 		MatSidenavModule,
 		MatListModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+		MatIconModule
 	],
 	templateUrl: "./app.component.html",
 	styleUrl: "./app.component.scss",
@@ -35,6 +35,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 export class AppComponent implements OnInit, OnDestroy {
 	mobileQuery: MediaQueryList;
   switchIcons: any;
+  route: any;
   themeService = inject(ThemeService);
   githubAPI = inject(GithubApiService);
 
@@ -71,7 +72,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.githubAPI.getRepos().subscribe((data) => {
       this.navItems = data.map(repo => ({
         name: repo.name.split('-').join(' '),
-        route: `/${repo.name.toLowerCase()}`
+        route: `${repo.name.toLowerCase()}`
       })).sort((a, b) => {
         return this.customOrder[a.name] - this.customOrder[b.name];
       });

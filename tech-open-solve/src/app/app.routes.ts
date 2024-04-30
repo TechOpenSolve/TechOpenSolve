@@ -8,6 +8,7 @@ import { FreelancingComponent } from './components/pages/freelancing/freelancing
 import { CommunityComponent } from './components/pages/community/community.component';
 import { OpenSourceComponent } from './components/pages/open-source/open-source.component';
 import { HiringProcessComponent } from './components/pages/hiring-process/hiring-process.component';
+import { CategoryRepoComponent } from './components/category-repo/category-repo.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +20,6 @@ export const routes: Routes = [
   { path: 'freelancing', component: FreelancingComponent },
   { path: 'community', component: CommunityComponent },
   { path: 'open-source', component: OpenSourceComponent },
+  { path: 'category/:repo', component: CategoryRepoComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
-
 ];

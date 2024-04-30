@@ -21,7 +21,7 @@
         <h3>Categories</h3>
         @for (nav of navItems; track nav) {
           @if (nav.name !== '.github' && nav.name !== 'TechOpenSolve') {
-            <a mat-list-item routerLink="{{nav.route}}">{{nav.name}}</a>
+            <a mat-list-item [routerLink]="['/category', nav.route]">{{nav.name}}</a>
           }
         }
       </mat-nav-list>
