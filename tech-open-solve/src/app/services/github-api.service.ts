@@ -13,4 +13,8 @@ export class GithubApiService {
   getRepos(): Observable<any[]> {
     return this.http.get<any[]>('https://api.github.com/orgs/TechOpenSolve/repos');
   }
+
+  getIssuesByRepo(repo: string): Observable<any[]> {
+    return this.http.get<any[]>(`https://api.github.com/repos/TechOpenSolve/${repo}/issues`);
+  }
 }
