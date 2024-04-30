@@ -20,7 +20,9 @@
       <mat-nav-list>
         <h3>Categories</h3>
         @for (nav of navItems; track nav) {
-        <a mat-list-item routerLink="{{nav.route}}">{{nav.name}}</a>
+          @if (nav.name !== '.github' && nav.name !== 'TechOpenSolve') {
+            <a mat-list-item routerLink="{{nav.route}}">{{nav.name}}</a>
+          }
         }
       </mat-nav-list>
     </mat-sidenav>
