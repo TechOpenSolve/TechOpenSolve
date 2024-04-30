@@ -7,7 +7,7 @@ import { WorkEnvComponent } from './components/pages/work-env/work-env.component
 import { FreelancingComponent } from './components/pages/freelancing/freelancing.component';
 import { CommunityComponent } from './components/pages/community/community.component';
 import { OpenSourceComponent } from './components/pages/open-source/open-source.component';
-import { HiringProcessComponent } from './components/hiring-process/hiring-process.component';
+import { HiringProcessComponent } from './components/pages/hiring-process/hiring-process.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
