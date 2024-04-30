@@ -12,6 +12,8 @@ import { MatIconModule, MatIconRegistry } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ThemeService } from "./services/theme.service";
+import { HttpClient } from "@angular/common/http";
+import { NavItem } from "./models/nav-item";
 
 
 
@@ -36,16 +38,20 @@ export class AppComponent implements OnInit, OnDestroy {
 	mobileQuery: MediaQueryList;
   switchIcons: any;
   themeService = inject(ThemeService);
+  http = inject(HttpClient);
 
-  navItems = [
-    { name: "Women In Tech", route: "/women-in-tech" },
-    { name: "Career Growth", route: "/career-growth" },
-    { name: "Employment", route: "/employment" },
-    { name: "Work Environment", route: "/work-environment" },
-    { name: "Freelancing", route: "/freelancing" },
-    { name: "Community", route: "/community" },
-    { name: "Open Source", route: "/open-source" },
-  ]
+  navItems: NavItem[] = [];
+  customOrder: { [key: string]: number } = {
+    "Women In Tech": 1,
+    "Career Growth": 2,
+    "Hiring Process": 3,
+    "Employment": 4,
+    "Work Environment": 5,
+    "Freelancing": 6,
+    "Community": 7,
+    "Open Source": 8,
+    "Docs": 9,
+  };
 
   private _mobileQueryListener: () => void;
 
@@ -64,6 +70,14 @@ export class AppComponent implements OnInit, OnDestroy {
       <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" aria-hidden="true" fill="currentColor" class="mdc-switch__icon mdc-switch__icon--on"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg>
       `;
     }
+    this.http.get<NavItem[]>('https://api.github.com/orgs/TechOpenSolve/repos').subscribe((data) => {
+      this.navItems = data.map(repo => ({
+        name: repo.name.split('-').join(' '),
+        route: `/${repo.name.toLowerCase()}`
+      })).sort((a, b) => {
+        return this.customOrder[a.name] - this.customOrder[b.name];
+      });
+    });
   }
 
   toggleTheme() {
