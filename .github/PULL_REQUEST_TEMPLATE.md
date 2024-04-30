@@ -9,16 +9,14 @@ closes #
 - [ ] 🌟 Contribution Acknowledgment
 - [ ] 🅰️ Feature
 - [ ] 🐛 Bug Fix
+- [ ] 📝 Documentation
+- [ ] 👥 Core Team
 
 
 ## Mobile & Desktop Screenshots/Recordings
 [Attach screenshots or recordings if applicable]
 
 ## Steps to QA
-
-## Added to documentation?
-- [ ] 📜 README.md
-- [ ] 🙅 no documentation needed
 
 ## [Optional] Post-deployment tasks
 [Specify any post-deployment tasks that need to be performed]
