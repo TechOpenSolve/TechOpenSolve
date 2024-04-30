@@ -14,7 +14,6 @@ body:
       description: Select the type of feature request, the lowercase should also be the PR prefix.
       options:
         - "✨ Feature"
-        - "🐛 Fix"
         - "📝 Documentation"
         - "🎨 Style"
         - "🧑‍💻 Refactor"

@@ -24,8 +24,8 @@ body:
       required: true
   - type: textarea
     attributes:
-      label: Suggested solution
-      description: Describe the solution you'd like.
+      label: Provide details
+      description: Give a description or link to the contribution acknowledgment.
   - type: input
     id: context
     attributes:

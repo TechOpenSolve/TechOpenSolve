@@ -5,7 +5,7 @@
 
 This repository is the only location for submitting Pull Requests and raising code-related Issues without prior discussion. It deals solely with code and not real life.
 
-Here is where all the contributions from the non-code but topical repositories are integrated and deployed to the live site.
+Here is where all contributions from the rest of the non-code repositories, representing different categories, are integrated and deployed to the live site.
 
 ## Regular Open Source Workflow
 
