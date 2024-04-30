@@ -43,7 +43,15 @@ $dark-theme: matx.define-theme((color: (theme-type: dark,
       button {
         .mdc-switch__track {
           &::after {
-            background-color: #1e2222 !important;
+            background-color: #282e2e !important;
+          }
+        }
+
+        .mdc-switch__handle-track {
+          .mdc-switch__handle {
+            &::after {
+              background: #3c6968 !important;
+            }
           }
         }
       }
@@ -59,7 +67,7 @@ $dark-theme: matx.define-theme((color: (theme-type: dark,
 
   app-footer {
     background-color: #131313;
-    color: #e0e3e2;
+    color: #555;
     box-shadow: 0 0.1rem 0.5rem #0f0f0fc2;
   }
 }
@@ -105,5 +113,6 @@ $dark-theme: matx.define-theme((color: (theme-type: dark,
 
   app-footer {
     background-color: #dfdfdf;
+    color: gray;
   }
 }
