@@ -2,6 +2,9 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit, PLATFORM_ID, Inject, i
 import { RouterLink, RouterOutlet } from "@angular/router";
 import { isPlatformBrowser } from "@angular/common";
 import { DomSanitizer } from "@angular/platform-browser";
+import { ThemeService } from "./services/theme.service";
+import { NavItem } from "./models/nav-item";
+import { GithubApiService } from "./services/github-api.service";
 import { FooterComponent } from "./components/footer/footer.component";
 
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -11,11 +14,6 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatIconModule, MatIconRegistry } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import { ThemeService } from "./services/theme.service";
-import { HttpClient } from "@angular/common/http";
-import { NavItem } from "./models/nav-item";
-
-
 
 @Component({
 	selector: "app-root",
@@ -38,7 +36,7 @@ export class AppComponent implements OnInit, OnDestroy {
 	mobileQuery: MediaQueryList;
   switchIcons: any;
   themeService = inject(ThemeService);
-  http = inject(HttpClient);
+  githubAPI = inject(GithubApiService);
 
   navItems: NavItem[] = [];
   customOrder: { [key: string]: number } = {
@@ -70,7 +68,7 @@ export class AppComponent implements OnInit, OnDestroy {
       <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" aria-hidden="true" fill="currentColor" class="mdc-switch__icon mdc-switch__icon--on"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg>
       `;
     }
-    this.http.get<NavItem[]>('https://api.github.com/orgs/TechOpenSolve/repos').subscribe((data) => {
+    this.githubAPI.getRepos().subscribe((data) => {
       this.navItems = data.map(repo => ({
         name: repo.name.split('-').join(' '),
         route: `/${repo.name.toLowerCase()}`
