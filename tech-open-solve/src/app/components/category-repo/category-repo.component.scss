@@ -1,0 +1,27 @@
+.background {
+  height: 100%;
+  opacity: 0.3;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+
+    mat-card {
+      padding: 1rem 1.5rem;
+    }
+  }
+}
