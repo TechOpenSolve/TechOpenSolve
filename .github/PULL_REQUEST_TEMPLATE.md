@@ -7,7 +7,7 @@ closes #
 ## What type of PR is this? (check all applicable)
 
 - [ ] 🌟 Contribution Acknowledgment
-- [ ] 🅰️ Feature
+- [ ] ✨ Feature
 - [ ] 🐛 Bug Fix
 - [ ] 📝 Documentation
 - [ ] 👥 Core Team
