@@ -24,7 +24,7 @@ $dark-theme: matx.define-theme((color: (theme-type: dark,
   @include mat.all-component-colors($dark-theme);
 
   mat-toolbar {
-    background-color: #131313;
+    background-color: #292929;
     box-shadow: 0 0.1rem 0.5rem #0f0f0fc2;
 
     .app-logo {
@@ -33,7 +33,7 @@ $dark-theme: matx.define-theme((color: (theme-type: dark,
       }
 
       h1 {
-        background-color: #131313;
+        background-color: #292929;
         color: #e0e3e2;
       }
     }
@@ -60,13 +60,17 @@ $dark-theme: matx.define-theme((color: (theme-type: dark,
 
   mat-sidenav-container {
     mat-sidenav {
-      background-color: #191a18;
+      background-color: #333;
       box-shadow: 0 0.1rem 0.5rem #0f0f0fc2;
+    }
+
+    mat-sidenav-content {
+      background-color: #555;
     }
   }
 
   app-footer {
-    background-color: #131313;
+    background-color: #292929;
     color: #555;
     box-shadow: 0 0.1rem 0.5rem #0f0f0fc2;
   }
