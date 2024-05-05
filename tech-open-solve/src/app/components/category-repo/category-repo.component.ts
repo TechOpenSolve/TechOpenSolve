@@ -2,12 +2,13 @@ import { Component, inject, Input, OnChanges, OnInit } from '@angular/core';
 import { GithubApiService } from '../../services/github-api.service';
 
 import {MatCardModule} from '@angular/material/card';
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
 
 @Component({
   selector: 'app-category-repo',
   standalone: true,
-  imports: [MatCardModule],
+  imports: [MatCardModule, MatButtonModule, MatDividerModule],
   templateUrl: './category-repo.component.html',
   styleUrl: './category-repo.component.scss'
 })
