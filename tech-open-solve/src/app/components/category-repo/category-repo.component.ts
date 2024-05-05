@@ -14,15 +14,18 @@ import {MatCardModule} from '@angular/material/card';
 export class CategoryRepoComponent implements OnInit, OnChanges {
   @Input() repo!: string;
 
+  repoDisplayName: string = '';
   issues: any[] = [];
   githubAPI = inject(GithubApiService);
 
   ngOnInit(): void {
+
   }
 
   ngOnChanges(): void {
     this.githubAPI.getIssuesByRepo(this.repo).subscribe((data) => {
       this.issues = data;
     });
+    this.repoDisplayName = this.repo.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   }
 }
