@@ -69,6 +69,14 @@ $dark-theme: matx.define-theme((color: (theme-type: dark,
     }
   }
 
+  mat-card {
+    .actions {
+      a {
+        background-color: #333;
+      }
+    }
+  }
+
   app-footer {
     background-color: #292929;
     color: #555;
