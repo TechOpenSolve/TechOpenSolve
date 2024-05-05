@@ -1,11 +1,16 @@
-<div class="background" [style.background]="'url(./../../../../assets/images/' + repo + '.png)'"></div>
+@if (repo !== 'docs') {
+<div class="background"
+  [style.background]="'url(./../../../../assets/images/' + repo + '.png) no-repeat center center/cover'"></div>
 
 <div class="content">
   <h1>{{repo}} Issues</h1>
   <div class="cards-wrapper">
-  @for (issue of issues; track issue) {
+    @for (issue of issues; track issue) {
     <mat-card>
       <h2>{{issue.title}}</h2>
+      <a href="{{issue.html_url}}" target="_blank">Read More</a>
     </mat-card>
-  }
+    }
+  </div>
 </div>
+}
