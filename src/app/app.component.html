@@ -1,0 +1,37 @@
+
+<div class="container" [class]="themeService.themeSignal()" [class.is-mobile]="mobileQuery.matches">
+  <mat-toolbar>
+
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <div class="app-logo">
+      <a routerLink="">
+        <mat-icon svgIcon="techopensolve"></mat-icon>
+        <h1>TechOpenSolve</h1>
+      </a>
+    </div>
+    <div class="theme-control">
+      <mat-slide-toggle checked (click)="toggleTheme()"></mat-slide-toggle>
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56" opened="open">
+      <mat-nav-list>
+        <h3>Categories</h3>
+        @for (nav of navItems; track nav) {
+          @if (nav.name !== 'Docs') {
+            <a mat-list-item routerLink="{{nav.route}}">{{nav.name}}</a>
+          } @else {
+            <!-- <a mat-list-item href="https://docs.techopensolve.com">{{nav.name}}</a> -->
+          }
+        }
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <app-footer></app-footer>
+</div>
