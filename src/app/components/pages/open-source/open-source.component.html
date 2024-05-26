@@ -1,0 +1,22 @@
+<div class="open-source page">
+  <div class="content">
+    <h1>{{repoDisplayName}} Issues</h1>
+    <div class="cards-wrapper">
+      @for (issue of issues; track issue) {
+      <mat-card>
+        <div class="title">
+          <h2>{{issue.title}}</h2>
+          <mat-divider></mat-divider>
+        </div>
+        <div class="contributors">
+
+        </div>
+        <mat-divider></mat-divider>
+        <div class="actions">
+          <a mat-raised-button href="{{issue.html_url}}" target="_blank">Read More</a>
+        </div>
+      </mat-card>
+      }
+    </div>
+</div>
+
